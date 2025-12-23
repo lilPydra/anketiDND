@@ -1,0 +1,29 @@
+name: dnd_character_manager
+description: A character sheet manager for D&D and other tabletop RPG systems
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  sqflite: ^2.3.0
+  path: ^1.8.0
+  json_annotation: ^4.8.0
+  flutter_form_builder: ^9.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  build_runner: ^2.0.0
+  json_serializable: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/forms/dnd_5e/
+    - assets/forms/pathfinder/
+    - assets/forms/cyberpunk_red/
