@@ -1,0 +1,77 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'form_definition.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+FormField _$FormFieldFromJson(Map<String, dynamic> json) => FormField(
+      id: json['id'] as String,
+      label: json['label'] as String,
+      type: $enumDecode(_$FormFieldTypeEnumMap, json['type']),
+      placeholder: json['placeholder'] as String?,
+      options:
+          (json['options'] as List<dynamic>?)?.map((e) => e as String).toList(),
+      required: json['required'] as bool? ?? false,
+      defaultValue: json['defaultValue'],
+      validationPattern: json['validationPattern'] as String?,
+      validationMessage: json['validationMessage'] as String?,
+    );
+
+Map<String, dynamic> _$FormFieldToJson(FormField instance) => <String, dynamic>{
+      'id': instance.id,
+      'label': instance.label,
+      'type': _$FormFieldTypeEnumMap[instance.type]!,
+      'placeholder': instance.placeholder,
+      'options': instance.options,
+      'required': instance.required,
+      'defaultValue': instance.defaultValue,
+      'validationPattern': instance.validationPattern,
+      'validationMessage': instance.validationMessage,
+    };
+
+const _$FormFieldTypeEnumMap = {
+  FormFieldType.text: 'text',
+  FormFieldType.number: 'number',
+  FormFieldType.dropdown: 'dropdown',
+  FormFieldType.checkbox: 'checkbox',
+  FormFieldType.radio: 'radio',
+  FormFieldType.textarea: 'textarea',
+  FormFieldType.section: 'section',
+};
+
+FormSection _$FormSectionFromJson(Map<String, dynamic> json) => FormSection(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      fields: (json['fields'] as List<dynamic>)
+          .map((e) => FormField.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$FormSectionToJson(FormSection instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'fields': instance.fields,
+    };
+
+FormDefinition _$FormDefinitionFromJson(Map<String, dynamic> json) =>
+    FormDefinition(
+      id: json['id'] as String,
+      systemName: json['systemName'] as String,
+      systemVersion: json['systemVersion'] as String,
+      title: json['title'] as String,
+      sections: (json['sections'] as List<dynamic>)
+          .map((e) => FormSection.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$FormDefinitionToJson(FormDefinition instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'systemName': instance.systemName,
+      'systemVersion': instance.systemVersion,
+      'title': instance.title,
+      'sections': instance.sections,
+    };
