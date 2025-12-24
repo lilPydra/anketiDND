@@ -1,0 +1,80 @@
+{
+  "id": "dnd_5e_basic",
+  "systemName": "dnd_5e",
+  "systemVersion": "5.0",
+  "title": "D&D 5e Character Sheet",
+  "sections": [
+    {
+      "id": "basic_info",
+      "title": "Basic Information",
+      "fields": [
+        {
+          "id": "characterName",
+          "label": "Character Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "class",
+          "label": "Class",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "level",
+          "label": "Level",
+          "type": "number",
+          "required": true
+        },
+        {
+          "id": "race",
+          "label": "Race",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "abilities",
+      "title": "Ability Scores",
+      "fields": [
+        {
+          "id": "strength",
+          "label": "Strength",
+          "type": "number",
+          "defaultValue": 10
+        },
+        {
+          "id": "dexterity",
+          "label": "Dexterity",
+          "type": "number",
+          "defaultValue": 10
+        },
+        {
+          "id": "constitution",
+          "label": "Constitution",
+          "type": "number",
+          "defaultValue": 10
+        },
+        {
+          "id": "intelligence",
+          "label": "Intelligence",
+          "type": "number",
+          "defaultValue": 10
+        },
+        {
+          "id": "wisdom",
+          "label": "Wisdom",
+          "type": "number",
+          "defaultValue": 10
+        },
+        {
+          "id": "charisma",
+          "label": "Charisma",
+          "type": "number",
+          "defaultValue": 10
+        }
+      ]
+    }
+  ]
+}

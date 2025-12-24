@@ -1,9 +1,9 @@
 // lib/common/widgets/form_field_widget.dart
 import 'package:flutter/material.dart';
-import '../../data/models/form_definition.dart';
+import '../../data/models/form_definition.dart' as FormDef;
 
 class FormFieldWidget extends StatelessWidget {
-  final FormField field;
+  final FormDef.FormField field;
   final TextEditingController? controller;
   final Function(dynamic)? onChanged;
 
@@ -17,27 +17,27 @@ class FormFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     switch (field.type) {
-      case FormFieldType.text:
+      case FormDef.FormFieldType.text:
         return TextFormField(
           controller: controller,
           decoration: InputDecoration(
             labelText: field.label,
             hintText: field.placeholder,
           ),
-          initialValue: field.defaultValue?.toString(),
+          initialValue: controller == null ? field.defaultValue?.toString() : null,
           validator: field.required
               ? (value) => value?.isEmpty == true ? 'This field is required' : null
               : null,
           onChanged: onChanged,
         );
-      case FormFieldType.number:
+      case FormDef.FormFieldType.number:
         return TextFormField(
           controller: controller,
           decoration: InputDecoration(
             labelText: field.label,
             hintText: field.placeholder,
           ),
-          initialValue: field.defaultValue?.toString(),
+          initialValue: controller == null ? field.defaultValue?.toString() : null,
           keyboardType: TextInputType.number,
           validator: field.required
               ? (value) {
@@ -58,10 +58,10 @@ class FormFieldWidget extends StatelessWidget {
             }
           },
         );
-      case FormFieldType.dropdown:
+      case FormDef.FormFieldType.dropdown:
         // For simplicity, using a simple dropdown
         return DropdownButtonFormField<String>(
-          value: field.defaultValue?.toString(),
+          initialValue: field.defaultValue?.toString(),
           decoration: InputDecoration(
             labelText: field.label,
           ),
@@ -80,7 +80,7 @@ class FormFieldWidget extends StatelessWidget {
             }
           },
         );
-      case FormFieldType.checkbox:
+      case FormDef.FormFieldType.checkbox:
         // Note: This is a simplified implementation
         // A proper implementation would need a different approach
         return SwitchListTile(
@@ -92,14 +92,14 @@ class FormFieldWidget extends StatelessWidget {
             }
           },
         );
-      case FormFieldType.textarea:
+      case FormDef.FormFieldType.textarea:
         return TextFormField(
           controller: controller,
           decoration: InputDecoration(
             labelText: field.label,
             hintText: field.placeholder,
           ),
-          initialValue: field.defaultValue?.toString(),
+          initialValue: controller == null ? field.defaultValue?.toString() : null,
           maxLines: 5,
           validator: field.required
               ? (value) => value?.isEmpty == true ? 'This field is required' : null

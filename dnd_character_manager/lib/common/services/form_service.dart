@@ -1,7 +1,7 @@
 // lib/common/services/form_service.dart
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
-import '../models/form_definition.dart';
+import '../../data/models/form_definition.dart';
 
 class FormService {
   static const String _formsPath = 'assets/forms';
