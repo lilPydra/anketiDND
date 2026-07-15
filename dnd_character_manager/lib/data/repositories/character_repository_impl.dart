@@ -1,7 +1,7 @@
 // lib/data/repositories/character_repository_impl.dart
 import '../models/character_sheet.dart';
 import '../../common/interfaces/character_repository.dart';
-import '../../core/database/database_helper.dart';
+import '../../data/database_helper/database_helper.dart';
 
 class CharacterRepositoryImpl implements CharacterRepository {
   final DatabaseHelper _databaseHelper = DatabaseHelper();
@@ -13,12 +13,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
 
   @override
   Future<CharacterSheet> getCharacterById(String id) async {
-    final db = await _databaseHelper.database;
-    final List<Map<String, dynamic>> maps = await db.query(
-      'character_sheets',
-      where: 'id = ?',
-      whereArgs: [id],
-    );
+    final List<Map<String, dynamic>> maps = await _databaseHelper.getCharacterSheetById(id)
 
     if (maps.isNotEmpty) {
       final map = maps.first;

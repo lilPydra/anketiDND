@@ -42,7 +42,7 @@ class WebDatabaseHelper extends DatabaseHelper {
     final sheets = data.values
         .map((v) => rowToSheet((v as Map).cast<String, dynamic>()))
         .toList();
-    sheets.sort((a, b) => b.updatedAt.compareTo(a.updatedAt));
+    sheets.sort((a, b) => b?.updatedAt?.compareTo(a?.updatedAt));
     return sheets;
   }
 

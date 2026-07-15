@@ -7,6 +7,9 @@ import '../../data/models/character_sheet.dart';
 /// Platform-specific implementations (SQLite for Android/iOS, localStorage
 /// for the browser) live under `lib/core/database` and implement this class.
 abstract class DatabaseHelper {
+  const DatabaseHelper.protected();
+  /// The unified factory constructor that acts as the auto-provider.
+  factory DatabaseHelper() => getDatabaseHelper();
   Future<List<CharacterSheet>> getAllCharacterSheets();
 
   /// Returns the character with the given [id].
